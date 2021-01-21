@@ -1,16 +1,11 @@
-# Template project [LIVE DEMO](https://tereshka.github.io/template-project/)
+# Battleship Game [LIVE DEMO](https://tereshka.github.io/battleship-game/)
 Used stack: React, Redux, TypeScript, Sass
 
-Just a simple template. Has all required installations and setups. Prepared for deploying to github.<br/>
-Folders:
-- assets - for different images
-- components - for project  components
-- mock - for some template data used in components instead of loading from server
-- store - redux store
-- style - template with Colors, but can be some different styles used in all project's components
-- types - for TS types, classes and so on
-- utils - for some methods, that are needed for some time
-
+Implementation of battleship game with following features:
+- mobile adaptive
+- see ship's status
+- see hit status on  the field
+- count player points
 
 ## Available Scripts
 
