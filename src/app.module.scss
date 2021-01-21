@@ -6,3 +6,34 @@
 
   .pointsShips {}
 }
+
+@media screen and (min-width: 640px) and (max-width: 980px) {
+  .app{
+    margin: 15px;
+    grid-template-columns: 1fr;
+  }
+  .appItem:nth-child(1) { order: 2; }
+  .appItem:nth-child(2) { order: 1; }
+
+  .pointsShips {
+    display: grid;
+    grid-gap: 18px;
+    grid-template-columns: 1fr 2fr;
+  }
+}
+
+@media screen and (max-width: 639px) {
+  .app{
+    margin: 0px;
+    grid-gap: 0px;
+    grid-template-columns: 1fr;
+  }
+  .appItem:nth-child(1) { order: 2; }
+  .appItem:nth-child(2) { order: 1; }
+
+  .pointsShips {
+    display: grid;
+    grid-gap: 0px;
+    grid-template-columns: 1fr;
+  }
+}
