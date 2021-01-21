@@ -1,5 +1,6 @@
 import React from 'react';
 import { useAppDispatch } from 'store/index';
+import { hitFieldCell } from 'store/app/actions';
 import { CellType } from 'types/cell';
 
 import HitIcon from 'assets/Hit.png';
@@ -24,7 +25,7 @@ const FieldCell = (props: FieldCellProps) => {
 
   const handleCellClick = () => {
     if (cell.hit) return;
-    console.log('hit');
+    dispatch(hitFieldCell(cell));
   };
 
   return (

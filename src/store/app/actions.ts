@@ -5,6 +5,9 @@ import {
   SET_OPPONENT_CELLS,
   SET_SHIPS_DICTIONARY,
   CLEAR_PLAYER_DATA,
+  HIT_CELL,
+  UPDATE_SHIP_HIT,
+  SET_MAX_POINTS,
 } from './types';
 import { ShipLayout, ShipName, ShipTypes, Coordinate } from 'types/game';
 import { CellType } from 'types/cell';
@@ -43,6 +46,36 @@ export function clearPlayerData(): BattleShipActionTypes {
   };
 }
 
+export function setMaxPoints(points: number): BattleShipActionTypes {
+  return {
+    type: SET_MAX_POINTS,
+    payload: points,
+  };
+}
+
+export function hitCell(cell: CellType): BattleShipActionTypes {
+  return {
+    type: HIT_CELL,
+    payload: cell,
+  };
+}
+
+export function updateShipHit(shipId: string): BattleShipActionTypes {
+  return {
+    type: UPDATE_SHIP_HIT,
+    payload: shipId,
+  };
+}
+
+export function hitFieldCell(cell: CellType): AppThunk<void> {
+  return (dispatch) => {
+    dispatch(hitCell(cell));
+    if (cell.shipId) {
+      dispatch(updateShipHit(cell.shipId));
+    }
+  };
+}
+
 /**
  * TODO: change this method for getting data from server
  */
@@ -66,6 +99,7 @@ export function loadData(): AppThunk<void> {
     });
 
     dispatch(setShipsDictionary(shipTypes));
+    dispatch(setMaxPoints(maxPoints));
     dispatch(setOpponentShips(ships));
     dispatch(setOpponentCells(generateField(ships)));
   };
@@ -73,6 +107,7 @@ export function loadData(): AppThunk<void> {
 
 export function clearGameData(): AppThunk<void> {
   return (dispatch) => {
+    dispatch(clearPlayerData());
     dispatch(loadData());
   };
 }
