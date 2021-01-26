@@ -1,6 +1,7 @@
 {
   "name": "battleship-game",
   "homepage": "https://tereshka.github.io/battleship-game",
+  "author": "Elena Ageeva",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
